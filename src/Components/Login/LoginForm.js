@@ -1,4 +1,6 @@
 import React from 'react';
+import Input from '../Forms/Input';
+import Button from '../Forms/Button';
 import { Link } from 'react-router-dom';
 
 const LoginForm = () => {
@@ -32,23 +34,11 @@ const LoginForm = () => {
     <div>
       <h1>Login</h1>
       <form action="" onSubmit={handleSubmit}>
-        <input
-          type="text"
-          value={username}
-          onChange={({ target }) => {
-            setUsername(target.value);
-          }}
-        />
-        <input
-          type="password"
-          value={password}
-          onChange={({ target }) => {
-            setPassword(target.value);
-          }}
-        />
-        <button>Enter</button>
+        <Input label="User" type="text" name="username" />
+        <Input label="Password" type="password" name="password" />
+        <Button>Sign in</Button>
       </form>
-      <Link to="/login/create">Register</Link>
+      <Link to="/login/create">Sign up</Link>
     </div>
   );
 };
