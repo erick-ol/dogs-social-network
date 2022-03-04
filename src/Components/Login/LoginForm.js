@@ -4,6 +4,9 @@ import Button from '../Forms/Button';
 import { Link } from 'react-router-dom';
 import useForm from '../../Hooks/useForm';
 import { UserContext } from '../../Context/UserContext';
+import Error from '../Helper/Error';
+import styles from './css/LoginForm.module.css';
+import stylesBtn from '../Forms/css/Button.module.css';
 
 const LoginForm = () => {
   const username = useForm();
@@ -19,9 +22,9 @@ const LoginForm = () => {
   };
 
   return (
-    <div>
-      <h1>Login</h1>
-      <form action="" onSubmit={handleSubmit}>
+    <section className="animeLeft">
+      <h1 className="title">Login</h1>
+      <form className={styles.form} onSubmit={handleSubmit}>
         <Input label="User" type="text" name="username" {...username} />
         <Input label="Password" type="password" name="password" {...password} />
         {loading ? (
@@ -29,10 +32,15 @@ const LoginForm = () => {
         ) : (
           <Button>Sign in</Button>
         )}
-        {error && <p>{error}</p>}
+        <Error error={error} />
       </form>
-      <Link to="/login/create">Sign up</Link>
-    </div>
+      <Link className={styles.lost} to="/login/lost">Forgot your password?</Link>
+      <div className={styles.signup}>
+        <h2 className={styles.subtitle}>Sign Up</h2>
+        <p>Don't have an account yet? Sign up now!</p>
+        <Link className={stylesBtn.button} to="/login/create">Sign up</Link>
+      </div>
+    </section>
   );
 };
 
