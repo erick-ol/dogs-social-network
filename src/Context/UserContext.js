@@ -18,7 +18,6 @@ export const UserStorage = ({ children }) => {
     setLogin(false);
     window.localStorage.removeItem('token');
     navigate('/login');
-    console.log('oi');
   }, [navigate]);
 
   const getUser = async (token) => {
