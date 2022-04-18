@@ -2,6 +2,7 @@ import React from 'react';
 import './App.css';
 import Footer from './Components/Footer';
 import Header from './Components/Header';
+import NotFound from './Components/NotFound';
 import Home from './Components/Home';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import Login from './Components/Login';
@@ -30,6 +31,7 @@ const App = () => {
             />
             <Route path="photo/:id" element={<Photo />} />
             <Route path="profile/:user" element={<UserProfile />} />
+            <Route path="*" element={<NotFound />} />
           </Routes>
           <Footer />
         </UserStorage>
